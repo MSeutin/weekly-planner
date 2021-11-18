@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  background-color: #fafafa; 
+  color: #oaoaoa;
+  font-family: Didot;
+  padding: 0;
+}
+
+#display {
+  padding: 70px 0;
+  text-align: center;
+  font-size: 50px;
+/*   border-style: solid; */
+/*   border-color: blue; */
+  padding: 0;
+}
+ul li{
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  font-size: 30px;
+  transition: 0.2s;
+ 
+}
+ul li:hover{
+  color: darkred;
+}
+
+/* When clicked on, add a background color and strike out text */
+/* ul li.checked {
+  background: #fafafa;
+  text-decoration: line-through;
+  text-decoration-color: darkred;
+} */
+
+.checked{
+  test-decoration: line-through;
+}
