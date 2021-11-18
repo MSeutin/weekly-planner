@@ -1,38 +1,36 @@
 * {
   box-sizing: border-box;
   background-color: #fafafa; 
-  color: #oaoaoa;
+  color: #505050;
   font-family: Didot;
   padding: 0;
 }
 
+main{
+    /* display: flex; */
+    align-items: center;
+    margin-left: 30rem;
+    margin-right: 30rem;
+    margin-top: 4rem;
+}
+
 #display {
-  padding: 70px 0;
-  text-align: center;
+  margin-bottom: 4rem;
+  color: #101010;
   font-size: 50px;
-/*   border-style: solid; */
-/*   border-color: blue; */
-  padding: 0;
+
 }
 ul li{
-  cursor: pointer;
-  position: relative;
-  padding: 12px 8px 12px 40px;
+  /* cursor: pointer; */
+  /* position: relative; */
+  /* padding: 12px 8px 12px 40px; */
   font-size: 30px;
   transition: 0.2s;
+  list-style-type: cjk-decimal;
+  /* list-style-type: upper-roman; */
+  /* list-style-type: square; */
  
 }
 ul li:hover{
   color: darkred;
-}
-
-/* When clicked on, add a background color and strike out text */
-/* ul li.checked {
-  background: #fafafa;
-  text-decoration: line-through;
-  text-decoration-color: darkred;
-} */
-
-.checked{
-  test-decoration: line-through;
 }
