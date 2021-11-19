@@ -46,7 +46,7 @@ if (day == 0) {
   document.getElementById("monday").style.display = "none";
   document.getElementById("tuesday").style.display = "none";
   document.getElementById("wednesday").style.display = "none";
-  document.getElementById("thusday").style.display = "none";
+  document.getElementById("thursday").style.display = "none";
   document.getElementById("saturday").style.display = "none";
   document.getElementById("sunday").style.display = "none";
 } else {

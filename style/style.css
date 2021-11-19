@@ -20,6 +20,12 @@ main{
   font-size: 50px;
 
 }
+
+#input-field{
+    line-height: 40px;
+    padding-right: 10rem;
+}
+
 ul li{
   /* cursor: pointer; */
   /* position: relative; */
