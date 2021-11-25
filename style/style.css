@@ -1,9 +1,8 @@
 * {
   box-sizing: border-box;
-  background-color: #fafafa; 
-  color: #505050;
-  font-family: Didot;
+  margin: 0;
   padding: 0;
+  background-color: #fafafa; 
 }
 
 main{
@@ -12,18 +11,27 @@ main{
     margin-left: 30rem;
     margin-right: 30rem;
     margin-top: 4rem;
+    font-family: Didot;
+    color: #202020;
 }
 
-#display {
-  margin-bottom: 4rem;
-  color: #101010;
+#weekday {
+  color: #202020;
   font-size: 50px;
-
 }
 
-#input-field{
+.input-field{
     line-height: 40px;
+    margin-top: 2rem;
     padding-right: 10rem;
+    background-color: #fafafa;
+}
+
+input::placeholder {
+  color: #202020;
+  font-size: 1.2em;
+  font-style: italic;
+  padding-left: 15px;
 }
 
 ul li{
@@ -32,7 +40,7 @@ ul li{
   /* padding: 12px 8px 12px 40px; */
   font-size: 30px;
   transition: 0.2s;
-  list-style-type: cjk-decimal;
+  list-style-type: none;
   /* list-style-type: upper-roman; */
   /* list-style-type: square; */
  
@@ -40,3 +48,17 @@ ul li{
 ul li:hover{
   color: darkred;
 }
+
+.clear-btn{
+  background-color: #303030;
+  border: none;
+  color: rgb(230, 230, 230);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
