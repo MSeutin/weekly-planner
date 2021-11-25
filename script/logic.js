@@ -118,6 +118,7 @@ let t4li = document.querySelectorAll("li.thursday");
 for (let i = 0; i < t4li.length; i++) {
   t4li[i].addEventListener("click", function () {
     t4li[i].style.textDecoration = "line-through";
+    // t4li[i].style.display = 'none';
   });
 }
 

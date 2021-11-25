@@ -28,7 +28,9 @@ main{
 }
 
 input::placeholder {
-  color: #202020;
+  color: #0074D9;
+  /* color: #3D9970; */
+  /* color: #202020; */
   font-size: 1.2em;
   font-style: italic;
   padding-left: 15px;
