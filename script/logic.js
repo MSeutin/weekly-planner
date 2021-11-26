@@ -32,7 +32,7 @@ if (day == 0) {
   weekday.innerHTML = "Thursday";
   t4.style.display = "block";
 } else if (day == 5) {
-weekdayy.innerHTML = "Friday";
+weekday.innerHTML = "Friday";
   f5.style.display = "block";
 } else {
   weekday.innerHTML = "Saturday";
@@ -49,14 +49,14 @@ for (let i = 0; i < m1li.length; i++) {
 }
 
 document.querySelector(".monday-btn").addEventListener("click", function () {
-  let line_check4 = false;
+  let line_check3 = false;
   for (let i = 0; i < m1li.length; i++) {
     if (m1li[i].style.textDecoration == "line-through") {
-      line_check4 = true;
+      line_check3 = true;
     }
   }
 
-  if (line_check4 === true) {
+  if (line_check3 === true) {
     for (let i = 0; i < m1li.length; i++) {
       m1li[i].style.textDecoration = "none";
     }
@@ -73,14 +73,14 @@ for (let i = 0; i < t2li.length; i++) {
 }
 
 document.querySelector(".tuesday-btn").addEventListener("click", function () {
-  let line_check4 = false;
+  let line_check3 = false;
   for (let i = 0; i < t2li.length; i++) {
     if (t2li[i].style.textDecoration == "line-through") {
-      line_check4 = true;
+      line_check3 = true;
     }
   }
 
-  if (line_check4 === true) {
+  if (line_check3 === true) {
     for (let i = 0; i < t2li.length; i++) {
       t2li[i].style.textDecoration = "none";
     }
@@ -97,14 +97,14 @@ for (let i = 0; i < w3li.length; i++) {
 }
 
 document.querySelector(".wednesday-btn").addEventListener("click", function () {
-  let line_check4 = false;
+  let line_check3 = false;
   for (let i = 0; i < w3li.length; i++) {
     if (w3li[i].style.textDecoration == "line-through") {
-      line_check4 = true;
+      line_check3 = true;
     }
   }
 
-  if (line_check4 === true) {
+  if (line_check3 === true) {
     for (let i = 0; i < w3li.length; i++) {
       w3li[i].style.textDecoration = "none";
     }
@@ -118,6 +118,7 @@ let t4li = document.querySelectorAll("li.thursday");
 for (let i = 0; i < t4li.length; i++) {
   t4li[i].addEventListener("click", function () {
     t4li[i].style.textDecoration = "line-through";
+    // t4li[i].style.textDecorationColor = "green";
     // t4li[i].style.display = 'none';
   });
 }
@@ -147,14 +148,14 @@ for (let i = 0; i < f5li.length; i++) {
 }
 
 document.querySelector(".friday-btn").addEventListener("click", function () {
-  let line_check4 = false;
+  let line_check5 = false;
   for (let i = 0; i < f5li.length; i++) {
     if (f5li[i].style.textDecoration == "line-through") {
-      line_check4 = true;
+      line_check5 = true;
     }
   }
 
-  if (line_check4 === true) {
+  if (line_check5 === true) {
     for (let i = 0; i < f5li.length; i++) {
       f5li[i].style.textDecoration = "none";
     }
@@ -171,14 +172,14 @@ for (let i = 0; i < s6li.length; i++) {
 }
 
 document.querySelector(".saturday-btn").addEventListener("click", function () {
-  let line_check4 = false;
+  let line_check6 = false;
   for (let i = 0; i < s6li.length; i++) {
     if (s6li[i].style.textDecoration == "line-through") {
-      line_check4 = true;
+      line_check6 = true;
     }
   }
 
-  if (line_check4 === true) {
+  if (line_check6 === true) {
     for (let i = 0; i < s6li.length; i++) {
       s6li[i].style.textDecoration = "none";
     }
@@ -195,14 +196,14 @@ for (let i = 0; i < s7li.length; i++) {
 }
 
 document.querySelector(".sunday-btn").addEventListener("click", function () {
-  let line_check4 = false;
+  let line_check7 = false;
   for (let i = 0; i < s7li.length; i++) {
     if (s7li[i].style.textDecoration == "line-through") {
-      line_check4 = true;
+      line_check7 = true;
     }
   }
 
-  if (line_check4 === true) {
+  if (line_check7 === true) {
     for (let i = 0; i < s7li.length; i++) {
       s7li[i].style.textDecoration = "none";
     }
