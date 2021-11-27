@@ -1,3 +1,8 @@
+/* Global Variables */
+:root{
+  --nero: #252525;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,15 +17,15 @@ main{
     margin-right: 30rem;
     margin-top: 4rem;
     font-family: Didot;
-    color: #202020;
+    color: var(--nero);
 }
 
 #weekday {
-  color: #202020;
+  color: var(--nero);
   font-size: 50px;
 }
 
-.input-field{
+input{
     line-height: 40px;
     margin-top: 2rem;
     padding-right: 10rem;
@@ -29,32 +34,23 @@ main{
 
 input::placeholder {
   color: #0074D9;
-  /* color: #3D9970; */
-  /* color: #202020; */
   font-size: 1.2em;
   font-style: italic;
   padding-left: 15px;
 }
 
 ul li{
-  /* cursor: pointer; */
-  /* position: relative; */
-  /* padding: 12px 8px 12px 40px; */
   font-size: 30px;
   transition: 0.2s;
   list-style-type: none;
-  /* list-style-type: upper-roman; */
-  /* list-style-type: square; */
- 
-}
-ul li:hover{
-  color: darkred;
 }
 
-.clear-btn{
-  background-color: #303030;
-  border: none;
-  color: rgb(230, 230, 230);
+ul li:hover{
+  color: white;
+  background-color: var(--nero);
+}
+
+button{
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -62,5 +58,14 @@ ul li:hover{
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  background-color: white;
+  color: var(--nero);
+  border: 2px solid var(--nero); /* Green */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: var(--nero); /* Green */
+  color: white;
 }
 
