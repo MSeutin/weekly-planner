@@ -27,7 +27,7 @@ let this_day = {
 };
 
 // display list of the day
-let w3 = (document.querySelector(this_day[day]).style.display = "block");
+document.querySelector(this_day[day]).style.display = "block";
 
 // FUNCTION to toggle item color
 function item_toggle_color(list_items) {
@@ -43,22 +43,22 @@ function item_toggle_color(list_items) {
 }
 
 // Variables to select today's list
+let s0li = document.querySelectorAll("li.sunday");
 let m1li = document.querySelectorAll("li.monday");
 let t2li = document.querySelectorAll("li.tuesday");
 let w3li = document.querySelectorAll("li.wednesday");
 let t4li = document.querySelectorAll("li.thursday");
 let f5li = document.querySelectorAll("li.friday");
 let s6li = document.querySelectorAll("li.saturday");
-let s7li = document.querySelectorAll("li.sunday");
+
+let day_list = [s0li, m1li, t2li, w3li, t4li, f5li, s6li];
 
 // FUNCTION CALLS to Display TODAY's LIST
-item_toggle_color(m1li);
-item_toggle_color(t2li);
-item_toggle_color(w3li);
-item_toggle_color(t4li);
-item_toggle_color(f5li);
-item_toggle_color(s6li);
-item_toggle_color(s7li);
+for (let i = 0; i < day_list.length; i++){
+  if (i === day) {
+    item_toggle_color(day_list[i]);
+  }
+}
 
 // MONDAY LOGIC
 document
@@ -251,9 +251,9 @@ addButton6.addEventListener("click", () => {
 // SUNDAY LOGIC
 // let s7li = document.querySelectorAll("li.sunday");
 
-for (let i = 0; i < s7li.length; i++) {
-  s7li[i].addEventListener("click", function () {
-    s7li[i].style.color = "lightgrey";
+for (let i = 0; i < s0li.length; i++) {
+  s0li[i].addEventListener("click", function () {
+    s0li[i].style.color = "lightgrey";
   });
 }
 
@@ -261,15 +261,15 @@ document
   .querySelector(".sunday-reset-btn")
   .addEventListener("click", function () {
     let line_check7 = false;
-    for (let i = 0; i < s7li.length; i++) {
-      if ((s7li[i].style.color = "lightgrey")) {
+    for (let i = 0; i < s0li.length; i++) {
+      if ((s0li[i].style.color = "lightgrey")) {
         line_check7 = true;
       }
     }
 
     if (line_check7 === true) {
-      for (let i = 0; i < s7li.length; i++) {
-        s7li[i].style.color = "var(--nero)";
+      for (let i = 0; i < s0li.length; i++) {
+        s0li[i].style.color = "var(--nero)";
       }
     }
   });
