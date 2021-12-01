@@ -1,67 +1,82 @@
+// get day of the week 0=sunday, 1=monday...
 let day = new Date().getDay();
 
-// hide all 7 days
-let m1 = document.querySelector(".monday1");
-let t2 = document.querySelector(".tuesday2");
-let w3 = document.querySelector(".wednesday3");
-let t4 = document.querySelector(".thursday4");
-let f5 = document.querySelector(".friday5");
-let s6 = document.querySelector(".saturday6");
-let s7 = document.querySelector(".sunday7");
-m1.style.display = "none";
-t2.style.display = "none";
-w3.style.display = "none";
-t4.style.display = "none";
-f5.style.display = "none";
-s6.style.display = "none";
-s7.style.display = "none";
+// days array to display as title
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
-if (day == 0) {
-  weekday.innerHTML = "Sunday";
-  s7.style.display = "block";
-} else if (day == 1) {
-  weekday.innerHTML = "Monday";
-  m1.style.display = "block";
-} else if (day == 2) {
-  weekday.innerHTML = "Tuesday";
-  t2.style.display = "block";
-} else if (day == 3) {
-  weekday.innerHTML = "Wednesday";
-  w3.style.display = "block";
-} else if (day == 4) {
-  weekday.innerHTML = "Thursday";
-  t4.style.display = "block";
-} else if (day == 5) {
-  weekday.innerHTML = "Friday";
-  f5.style.display = "block";
-} else {
-  weekday.innerHTML = "Saturday";
-  s6.style.display = "block";
+// display correct day of the week
+today = document.querySelector(".today").innerHTML = days[day];
+
+// object to use to display list of the day
+let this_day = {
+  0: ".sunday7",
+  1: ".monday1",
+  2: ".tuesday2",
+  3: ".wednesday3",
+  4: ".thursday4",
+  5: ".friday5",
+  6: ".saturday6",
+};
+
+// display list of the day
+let w3 = (document.querySelector(this_day[day]).style.display = "block");
+
+// FUNCTION to toggle item color
+function item_toggle_color(list_items) {
+  for (let i = 0; i < list_items.length; i++) {
+    list_items[i].addEventListener("click", function () {
+      if (list_items[i].style.color === "var(--nero)") {
+        list_items[i].style.color = "lightgrey";
+      } else if ((list_items[i].style.color = "lightgrey")) {
+        list_items[i].style.color = "var(--nero)";
+      }
+    });
+  }
 }
+
+// Variables to select today's list
+let m1li = document.querySelectorAll("li.monday");
+let t2li = document.querySelectorAll("li.tuesday");
+let w3li = document.querySelectorAll("li.wednesday");
+let t4li = document.querySelectorAll("li.thursday");
+let f5li = document.querySelectorAll("li.friday");
+let s6li = document.querySelectorAll("li.saturday");
+let s7li = document.querySelectorAll("li.sunday");
+
+// FUNCTION CALLS to Display TODAY's LIST
+item_toggle_color(m1li);
+item_toggle_color(t2li);
+item_toggle_color(w3li);
+item_toggle_color(t4li);
+item_toggle_color(f5li);
+item_toggle_color(s6li);
+item_toggle_color(s7li);
 
 // MONDAY LOGIC
-let m1li = document.querySelectorAll("li.monday");
-
-for (let i = 0; i < m1li.length; i++) {
-  m1li[i].addEventListener("click", function () {
-    m1li[i].style.color = "lightgrey";
-  });
-}
-
-document.querySelector(".monday-btn").addEventListener("click", function () {
-  let line_check3 = false;
-  for (let i = 0; i < m1li.length; i++) {
-    if (m1li[i].style.color = "lightgrey") {
-      line_check3 = true;
-    }
-  }
-
-  if (line_check3 === true) {
+document
+  .querySelector(".monday-reset-btn")
+  .addEventListener("click", function () {
+    let line_check1 = false;
     for (let i = 0; i < m1li.length; i++) {
-      m1li[i].style.color = "var(--nero)";
+      if ((m1li[i].style.color = "lightgrey")) {
+        line_check1 = true;
+      }
     }
-  }
-});
+
+    if (line_check1 === true) {
+      for (let i = 0; i < m1li.length; i++) {
+        m1li[i].style.color = "var(--nero)";
+      }
+    }
+  });
 
 // create variables for adding items
 const addInput1 = document.querySelector(".monday-input");
@@ -76,28 +91,22 @@ addButton1.addEventListener("click", () => {
 });
 
 // TUESDAY LOGIC
-let t2li = document.querySelectorAll("li.tuesday");
-
-for (let i = 0; i < t2li.length; i++) {
-  t2li[i].addEventListener("click", function () {
-    t2li[i].style.color = "lightgrey";
-  });
-}
-
-document.querySelector(".tuesday-btn").addEventListener("click", function () {
-  let line_check3 = false;
-  for (let i = 0; i < t2li.length; i++) {
-    if (t2li[i].style.color = "lightgrey") {
-      line_check3 = true;
-    }
-  }
-
-  if (line_check3 === true) {
+document
+  .querySelector(".tuesday-reset-btn")
+  .addEventListener("click", function () {
+    let line_check2 = false;
     for (let i = 0; i < t2li.length; i++) {
-      t2li[i].style.color = "var(--nero)";
+      if ((t2li[i].style.color = "lightgrey")) {
+        line_check2 = true;
+      }
     }
-  }
-});
+
+    if (line_check2 === true) {
+      for (let i = 0; i < t2li.length; i++) {
+        t2li[i].style.color = "var(--nero)";
+      }
+    }
+  });
 
 // create variables for adding items
 const addInput2 = document.querySelector(".tuesday-input");
@@ -112,29 +121,22 @@ addButton2.addEventListener("click", () => {
 });
 
 // WEDNESDAY LOGIC
-let w3li = document.querySelectorAll("li.wednesday");
-
-for (let i = 0; i < w3li.length; i++) {
-  w3li[i].addEventListener("click", function () {
-    w3li[i].style.color = "lightgrey";
-  });
-}
-
-document.querySelector(".wednesday-btn").addEventListener("click", function () {
-  let line_check3 = false;
-  for (let i = 0; i < w3li.length; i++) {
-    if (w3li[i].style.color = "lightgrey") {
-      line_check3 = true;
-    }
-  }
-
-  if (line_check3 === true) {
+document
+  .querySelector(".wednesday-reset-btn")
+  .addEventListener("click", function () {
+    let line_check3 = false;
     for (let i = 0; i < w3li.length; i++) {
-      w3li[i].style.color = "var(--nero)";
+      if ((w3li[i].style.color = "lightgrey")) {
+        line_check3 = true;
+      }
     }
-  }
-});
 
+    if (line_check3 === true) {
+      for (let i = 0; i < w3li.length; i++) {
+        w3li[i].style.color = "var(--nero)";
+      }
+    }
+  });
 // create variables for adding items
 const addInput3 = document.querySelector(".wednesday-input");
 const addButton3 = document.querySelector(".wednesday-add");
@@ -148,30 +150,23 @@ addButton3.addEventListener("click", () => {
 });
 
 // THURSDAY LOGIC
-let t4li = document.querySelectorAll("li.thursday");
 
-for (let i = 0; i < t4li.length; i++) {
-  t4li[i].addEventListener("click", function () {
-    t4li[i].style.color = "lightgrey";
-    // t4li[i].style.color = "green";
-    // t4li[i].style.display = 'none';
-  });
-}
-
-document.querySelector(".thursday-btn").addEventListener("click", function () {
-  let line_check4 = false;
-  for (let i = 0; i < t4li.length; i++) {
-    if (t4li[i].style.color = "lightgrey") {
-      line_check4 = true;
-    }
-  }
-
-  if (line_check4 === true) {
+document
+  .querySelector(".thursday-reset-btn")
+  .addEventListener("click", function () {
+    let line_check4 = false;
     for (let i = 0; i < t4li.length; i++) {
-      t4li[i].style.color = "var(--nero)";
+      if ((t4li[i].style.color = "lightgrey")) {
+        line_check4 = true;
+      }
     }
-  }
-});
+
+    if (line_check4 === true) {
+      for (let i = 0; i < t4li.length; i++) {
+        t4li[i].style.color = "var(--nero)";
+      }
+    }
+  });
 
 // create variables for adding items
 const addInput4 = document.querySelector(".thursday-input");
@@ -186,29 +181,22 @@ addButton4.addEventListener("click", () => {
 });
 
 // FRIDAY LOGIC
-let f5li = document.querySelectorAll("li.friday");
-
-for (let i = 0; i < f5li.length; i++) {
-  f5li[i].addEventListener("click", function () {
-    // f5li[i].style.textDecoration = "line-through";
-    f5li[i].style.color = "lightgrey";
-  });
-}
-
-document.querySelector(".friday-btn").addEventListener("click", function () {
-  let line_check5 = false;
-  for (let i = 0; i < f5li.length; i++) {
-    if (f5li[i].style.color = "lightgrey") {
-      line_check5 = true;
-    }
-  }
-
-  if (line_check5 === true) {
+document
+  .querySelector(".friday-reset-btn")
+  .addEventListener("click", function () {
+    let line_check5 = false;
     for (let i = 0; i < f5li.length; i++) {
-      f5li[i].style.color = "var(--nero)";
+      if ((f5li[i].style.color = "lightgrey")) {
+        line_check5 = true;
+      }
     }
-  }
-});
+
+    if (line_check5 === true) {
+      for (let i = 0; i < f5li.length; i++) {
+        f5li[i].style.color = "var(--nero)";
+      }
+    }
+  });
 
 // create variables for adding items
 const addInput5 = document.querySelector(".friday-input");
@@ -223,7 +211,7 @@ addButton5.addEventListener("click", () => {
 });
 
 // SATURDAY LOGIC
-let s6li = document.querySelectorAll("li.saturday");
+// let s6li = document.querySelectorAll("li.saturday");
 
 for (let i = 0; i < s6li.length; i++) {
   s6li[i].addEventListener("click", function () {
@@ -231,20 +219,22 @@ for (let i = 0; i < s6li.length; i++) {
   });
 }
 
-document.querySelector(".saturday-btn").addEventListener("click", function () {
-  let line_check6 = false;
-  for (let i = 0; i < s6li.length; i++) {
-    if (s6li[i].style.color = "lightgrey") {
-      line_check6 = true;
-    }
-  }
-
-  if (line_check6 === true) {
+document
+  .querySelector(".saturday-reset-btn")
+  .addEventListener("click", function () {
+    let line_check6 = false;
     for (let i = 0; i < s6li.length; i++) {
-      s6li[i].style.color = "var(--nero)";
+      if ((s6li[i].style.color = "lightgrey")) {
+        line_check6 = true;
+      }
     }
-  }
-});
+
+    if (line_check6 === true) {
+      for (let i = 0; i < s6li.length; i++) {
+        s6li[i].style.color = "var(--nero)";
+      }
+    }
+  });
 
 // create variables for adding items
 const addInput6 = document.querySelector(".saturday-input");
@@ -259,7 +249,7 @@ addButton6.addEventListener("click", () => {
 });
 
 // SUNDAY LOGIC
-let s7li = document.querySelectorAll("li.sunday");
+// let s7li = document.querySelectorAll("li.sunday");
 
 for (let i = 0; i < s7li.length; i++) {
   s7li[i].addEventListener("click", function () {
@@ -267,20 +257,22 @@ for (let i = 0; i < s7li.length; i++) {
   });
 }
 
-document.querySelector(".sunday-btn").addEventListener("click", function () {
-  let line_check7 = false;
-  for (let i = 0; i < s7li.length; i++) {
-    if (s7li[i].style.color = "lightgrey") {
-      line_check7 = true;
-    }
-  }
-
-  if (line_check7 === true) {
+document
+  .querySelector(".sunday-reset-btn")
+  .addEventListener("click", function () {
+    let line_check7 = false;
     for (let i = 0; i < s7li.length; i++) {
-      s7li[i].style.color = "var(--nero)";
+      if ((s7li[i].style.color = "lightgrey")) {
+        line_check7 = true;
+      }
     }
-  }
-});
+
+    if (line_check7 === true) {
+      for (let i = 0; i < s7li.length; i++) {
+        s7li[i].style.color = "var(--nero)";
+      }
+    }
+  });
 
 // create variables for adding items
 const addInput7 = document.querySelector(".sunday-input");
@@ -289,7 +281,11 @@ const addButton7 = document.querySelector(".sunday-add");
 addButton7.addEventListener("click", () => {
   const ul = document.querySelector(".sunday7");
   const li = document.createElement("li");
+  li.className = "sunday";
   li.innerHTML = addInput7.value;
   addInput7.value = "";
   ul.appendChild(li);
+  li.addEventListener("click", function () {
+    li.style.color = "lightgrey";
+  });
 });
