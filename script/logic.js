@@ -1,7 +1,7 @@
-// get day of the week 0=sunday, 1=monday...
+// VARIABLES - get day of the week 0=sunday, 1=monday...
 let day = new Date().getDay();
 
-// days array to display as title
+// VARIABLES - days array to display as title
 let days = [
   "Sunday",
   "Monday",
@@ -12,12 +12,24 @@ let days = [
   "Saturday",
 ];
 
-// display correct day of the week
-today = document.querySelector(".today").innerHTML = days[day];
+// VARIABLES - addText & AddButton
+const addText = document.querySelector(".add-item-text");
+const addButton = document.querySelector(".add-item-btn");
 
-// object to use to display list of the day
+// VARIABLES - to select today's list
+let s0li = document.querySelectorAll(".sunday0 li");
+let m1li = document.querySelectorAll(".monday1 li");
+let t2li = document.querySelectorAll(".tuesday2 li");
+let w3li = document.querySelectorAll(".wednesday3 li");
+let t4li = document.querySelectorAll(".thursday4 li");
+let f5li = document.querySelectorAll(".friday5 li");
+let s6li = document.querySelectorAll(".saturday6 li");
+
+let day_list = [s0li, m1li, t2li, w3li, t4li, f5li, s6li];
+
+// VARIABLES - object to use to display list of the day
 let this_day = {
-  0: ".sunday7",
+  0: ".sunday0",
   1: ".monday1",
   2: ".tuesday2",
   3: ".wednesday3",
@@ -26,7 +38,8 @@ let this_day = {
   6: ".saturday6",
 };
 
-// display list of the day
+// DISPLAY - Weekday & List of the day
+document.querySelector(".today").innerHTML = days[day];
 document.querySelector(this_day[day]).style.display = "block";
 
 // FUNCTION to toggle item color
@@ -42,250 +55,42 @@ function item_toggle_color(list_items) {
   }
 }
 
-// Variables to select today's list
-let s0li = document.querySelectorAll("li.sunday");
-let m1li = document.querySelectorAll("li.monday");
-let t2li = document.querySelectorAll("li.tuesday");
-let w3li = document.querySelectorAll("li.wednesday");
-let t4li = document.querySelectorAll("li.thursday");
-let f5li = document.querySelectorAll("li.friday");
-let s6li = document.querySelectorAll("li.saturday");
+// FUNCTION to Clear Button - Input
+function reset(today) {
+  document.querySelector(".reset-btn").addEventListener("click", function () {
+    let line_check = false;
+    for (let i = 0; i < w3li.length; i++) {
+      if ((today[i].style.color = "lightgrey")) {
+        line_check = true;
+      }
+    }
 
-let day_list = [s0li, m1li, t2li, w3li, t4li, f5li, s6li];
+    if (line_check === true) {
+      for (let i = 0; i < w3li.length; i++) {
+        today[i].style.color = "var(--nero)";
+      }
+    }
+  });
+}
 
-// FUNCTION CALLS to Display TODAY's LIST
-for (let i = 0; i < day_list.length; i++){
+// FUNCTION to Add Item to List Element
+function addItem(today) {
+  addButton.addEventListener("click", () => {
+    const ul = document.querySelector(today);
+    const li = document.createElement("li");
+    li.innerHTML = addText.value;
+    addText.value = "";
+    ul.appendChild(li);
+  });
+}
+
+// FUNCTION CALLS:
+// 1. to Toggle Items States
+// 2. to Clear/reset Button
+for (let i = 0; i < day_list.length; i++) {
   if (i === day) {
     item_toggle_color(day_list[i]);
+    reset(day_list[i]);
   }
 }
-
-// MONDAY LOGIC
-document
-  .querySelector(".monday-reset-btn")
-  .addEventListener("click", function () {
-    let line_check1 = false;
-    for (let i = 0; i < m1li.length; i++) {
-      if ((m1li[i].style.color = "lightgrey")) {
-        line_check1 = true;
-      }
-    }
-
-    if (line_check1 === true) {
-      for (let i = 0; i < m1li.length; i++) {
-        m1li[i].style.color = "var(--nero)";
-      }
-    }
-  });
-
-// create variables for adding items
-const addInput1 = document.querySelector(".monday-input");
-const addButton1 = document.querySelector(".monday-add");
-
-addButton1.addEventListener("click", () => {
-  const ul = document.querySelector(".monday1");
-  const li = document.createElement("li");
-  li.innerHTML = addInput1.value;
-  addInput1.value = "";
-  ul.appendChild(li);
-});
-
-// TUESDAY LOGIC
-document
-  .querySelector(".tuesday-reset-btn")
-  .addEventListener("click", function () {
-    let line_check2 = false;
-    for (let i = 0; i < t2li.length; i++) {
-      if ((t2li[i].style.color = "lightgrey")) {
-        line_check2 = true;
-      }
-    }
-
-    if (line_check2 === true) {
-      for (let i = 0; i < t2li.length; i++) {
-        t2li[i].style.color = "var(--nero)";
-      }
-    }
-  });
-
-// create variables for adding items
-const addInput2 = document.querySelector(".tuesday-input");
-const addButton2 = document.querySelector(".tuesday-add");
-
-addButton2.addEventListener("click", () => {
-  const ul = document.querySelector(".tuesday2");
-  const li = document.createElement("li");
-  li.innerHTML = addInput2.value;
-  addInput2.value = "";
-  ul.appendChild(li);
-});
-
-// WEDNESDAY LOGIC
-document
-  .querySelector(".wednesday-reset-btn")
-  .addEventListener("click", function () {
-    let line_check3 = false;
-    for (let i = 0; i < w3li.length; i++) {
-      if ((w3li[i].style.color = "lightgrey")) {
-        line_check3 = true;
-      }
-    }
-
-    if (line_check3 === true) {
-      for (let i = 0; i < w3li.length; i++) {
-        w3li[i].style.color = "var(--nero)";
-      }
-    }
-  });
-// create variables for adding items
-const addInput3 = document.querySelector(".wednesday-input");
-const addButton3 = document.querySelector(".wednesday-add");
-
-addButton3.addEventListener("click", () => {
-  const ul = document.querySelector(".wednesday3");
-  const li = document.createElement("li");
-  li.innerHTML = addInput3.value;
-  addInput3.value = "";
-  ul.appendChild(li);
-});
-
-// THURSDAY LOGIC
-
-document
-  .querySelector(".thursday-reset-btn")
-  .addEventListener("click", function () {
-    let line_check4 = false;
-    for (let i = 0; i < t4li.length; i++) {
-      if ((t4li[i].style.color = "lightgrey")) {
-        line_check4 = true;
-      }
-    }
-
-    if (line_check4 === true) {
-      for (let i = 0; i < t4li.length; i++) {
-        t4li[i].style.color = "var(--nero)";
-      }
-    }
-  });
-
-// create variables for adding items
-const addInput4 = document.querySelector(".thursday-input");
-const addButton4 = document.querySelector(".thursday-add");
-
-addButton4.addEventListener("click", () => {
-  const ul = document.querySelector(".thursday4");
-  const li = document.createElement("li");
-  li.innerHTML = addInput4.value;
-  addInput4.value = "";
-  ul.appendChild(li);
-});
-
-// FRIDAY LOGIC
-document
-  .querySelector(".friday-reset-btn")
-  .addEventListener("click", function () {
-    let line_check5 = false;
-    for (let i = 0; i < f5li.length; i++) {
-      if ((f5li[i].style.color = "lightgrey")) {
-        line_check5 = true;
-      }
-    }
-
-    if (line_check5 === true) {
-      for (let i = 0; i < f5li.length; i++) {
-        f5li[i].style.color = "var(--nero)";
-      }
-    }
-  });
-
-// create variables for adding items
-const addInput5 = document.querySelector(".friday-input");
-const addButton5 = document.querySelector(".friday-add");
-
-addButton5.addEventListener("click", () => {
-  const ul = document.querySelector(".friday5");
-  const li = document.createElement("li");
-  li.innerHTML = addInput5.value;
-  addInput5.value = "";
-  ul.appendChild(li);
-});
-
-// SATURDAY LOGIC
-// let s6li = document.querySelectorAll("li.saturday");
-
-for (let i = 0; i < s6li.length; i++) {
-  s6li[i].addEventListener("click", function () {
-    s6li[i].style.color = "lightgrey";
-  });
-}
-
-document
-  .querySelector(".saturday-reset-btn")
-  .addEventListener("click", function () {
-    let line_check6 = false;
-    for (let i = 0; i < s6li.length; i++) {
-      if ((s6li[i].style.color = "lightgrey")) {
-        line_check6 = true;
-      }
-    }
-
-    if (line_check6 === true) {
-      for (let i = 0; i < s6li.length; i++) {
-        s6li[i].style.color = "var(--nero)";
-      }
-    }
-  });
-
-// create variables for adding items
-const addInput6 = document.querySelector(".saturday-input");
-const addButton6 = document.querySelector(".saturday-add");
-
-addButton6.addEventListener("click", () => {
-  const ul = document.querySelector(".saturday6");
-  const li = document.createElement("li");
-  li.innerHTML = addInput6.value;
-  addInput6.value = "";
-  ul.appendChild(li);
-});
-
-// SUNDAY LOGIC
-// let s7li = document.querySelectorAll("li.sunday");
-
-for (let i = 0; i < s0li.length; i++) {
-  s0li[i].addEventListener("click", function () {
-    s0li[i].style.color = "lightgrey";
-  });
-}
-
-document
-  .querySelector(".sunday-reset-btn")
-  .addEventListener("click", function () {
-    let line_check7 = false;
-    for (let i = 0; i < s0li.length; i++) {
-      if ((s0li[i].style.color = "lightgrey")) {
-        line_check7 = true;
-      }
-    }
-
-    if (line_check7 === true) {
-      for (let i = 0; i < s0li.length; i++) {
-        s0li[i].style.color = "var(--nero)";
-      }
-    }
-  });
-
-// create variables for adding items
-const addInput7 = document.querySelector(".sunday-input");
-const addButton7 = document.querySelector(".sunday-add");
-
-addButton7.addEventListener("click", () => {
-  const ul = document.querySelector(".sunday7");
-  const li = document.createElement("li");
-  li.className = "sunday";
-  li.innerHTML = addInput7.value;
-  addInput7.value = "";
-  ul.appendChild(li);
-  li.addEventListener("click", function () {
-    li.style.color = "lightgrey";
-  });
-});
+addItem(this_day[day]);
