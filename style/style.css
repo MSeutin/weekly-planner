@@ -1,53 +1,81 @@
-/* Global Variables */
-:root{
-  --nero: #252525;
-}
-
+/****** GLOBAL RESET ******/
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #fafafa; 
+  background-color: var(--eyeWhite); 
 }
 
+/****** VARIABLES ******/
+:root{
+  --nero: #252525;
+  --eyeWhite: #F8F5FA;
+  --darkRed: #AA1111;
+  --lighGrey: #CCCCCC;
+}
+
+/****** MAIN ELEMENTS ******/
 main{
-    align-items: center;
-    margin-left: 30rem;
-    margin-right: 30rem;
-    margin-top: 4rem;
     font-family: Didot;
     color: var(--nero);
 }
+
+body, html{
+  height: 100%;
+}
+
+/****** CONTAINERS ******/
+.main-container{
+  margin: auto;
+  width: 40%;
+  padding: 2rem;
+}
+
+/****** image background ******/
+.bg-container {
+  background: url(../photos/elephants.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding 0;
+}
+
+/****** HEADER ******/
 
 .today {
   color: var(--nero);
   font-size: 50px;
 }
 
+/****** NAV BAR ******/
 input{
-    line-height: 40px;
-    margin-top: 2rem;
-    padding-right: 10rem;
-    background-color: #fafafa;
+    font-size: 1.2em;
+    padding-left: 15px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--eyeWhite);
+    width: 20rem;
+    cursor: pointer;
 }
 
 input::placeholder {
-  color: #0074D9;
-  font-size: 1.2em;
+  color: var(--darkRed);
+  font-size: 1.em;
   font-style: italic;
-  padding-left: 15px;
 }
 
+/****** LISTS ******/
 ul li{
   font-size: 30px;
-  transition: 0.2s;
   list-style-type: none;
 }
 
 ul li:hover{
-  background-color: lightgray;
+  background-color: var(--lighGrey);
 }
 
+/****** BUTTONS ******/
 button{
   padding: 10px 20px;
   text-align: center;
@@ -56,7 +84,7 @@ button{
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  background-color: white;
+  background-color:var(--eyeWhite);
   color: var(--nero);
   border: 2px solid var(--nero); /* Green */
   transition-duration: 0.4s;
@@ -64,9 +92,21 @@ button{
 
 button:hover {
   background-color: var(--nero); /* Green */
-  color: white;
+  color: var(--eyeWhite);
 }
 
-.monday1, .tuesday2, .wednesday3, .thursday4, .friday5, .saturday6, .sunday0{
+/****** HIDDEN CLASSES ******/
+.sunday0, .monday1, .tuesday2, .wednesday3, .thursday4, .friday5, .saturday6 {
   display: none;
 }
+
+.input,
+.submit {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+/****** FOOTER ******/
