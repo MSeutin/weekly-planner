@@ -12,10 +12,6 @@ let days = [
   "Saturday",
 ];
 
-// VARIABLES - addText & AddButton
-const addText = document.querySelector(".add-item-text");
-const addButton = document.querySelector(".add-item-btn");
-
 // VARIABLES - to select today's list
 let s0li = document.querySelectorAll(".sunday0 li");
 let m1li = document.querySelectorAll(".monday1 li");
@@ -38,9 +34,16 @@ let this_day = {
   6: ".saturday6",
 };
 
+// VARIABLES 
+const addText = document.querySelector(".add-item-text");
+const addButton = document.querySelector(".add-item-btn");
+const WEEKDAY = days[day]; // Monday, Tuesday, ..
+let showOnlyToday = this_day[day]; // class ".monday1", ".tuesday2"..
+let listForToday = day_list[day]; // list items for today
+
 // DISPLAY - Weekday & List of the day
-document.querySelector(".today").innerHTML = days[day];
-document.querySelector(this_day[day]).style.display = "block";
+document.querySelector(".today").innerHTML = WEEKDAY;
+document.querySelector(showOnlyToday).style.display = "block";
 
 // FUNCTION to toggle item color
 function item_toggle_color(list_items) {
@@ -55,42 +58,46 @@ function item_toggle_color(list_items) {
   }
 }
 
-// FUNCTION to Clear Button - Input
-function reset(today) {
-  document.querySelector(".reset-btn").addEventListener("click", function () {
-    let line_check = false;
-    for (let i = 0; i < w3li.length; i++) {
-      if ((today[i].style.color = "lightgrey")) {
-        line_check = true;
-      }
-    }
+// function item_toggle_color() {
+//   for (let i = 0; i < day_list[day].length; i++){
+//     if (day_list[day][i].style.color === "var(--nero)") {
+//       day_list[day][i].style.color = "lightgrey";
+//     } else if (day_list[day][i].style.color === "lightgrey") {
+//       day_list[day][i].style.color = "var(--nero)";
+//     }
+//   }
+// }
 
-    if (line_check === true) {
-      for (let i = 0; i < w3li.length; i++) {
-        today[i].style.color = "var(--nero)";
-      }
+// FUNCTION to Clear Button - Input
+function reset() {
+  let line_check = false;
+  for (let i = 0; i < listForToday.length; i++) {
+    if (listForToday[i].style.color === "lightgrey") {
+      line_check = true;
     }
-  });
+  }
+  if (line_check === true) {
+    for (let i = 0; i < w3li.length; i++) {
+      listForToday[i].style.color = "var(--nero)";
+    }
+  }
 }
 
 // FUNCTION to Add Item to List Element
-function addItem(today) {
-  addButton.addEventListener("click", () => {
-    const ul = document.querySelector(today);
-    const li = document.createElement("li");
-    li.innerHTML = addText.value;
-    addText.value = "";
-    ul.appendChild(li);
-  });
+function addItem() {
+  const ul = document.querySelector(showOnlyToday);
+  const li = document.createElement("li");
+  li.innerHTML = addText.value;
+  addText.value = "";
+  ul.appendChild(li);
 }
 
 // FUNCTION CALLS:
-// 1. to Toggle Items States
-// 2. to Clear/reset Button
-for (let i = 0; i < day_list.length; i++) {
-  if (i === day) {
-    item_toggle_color(day_list[i]);
-    reset(day_list[i]);
-  }
-}
-addItem(this_day[day]);
+// to Toggle Items States
+item_toggle_color(listForToday);
+
+// CALLS EVENT LISTENERS
+addButton.addEventListener("click", addItem);
+document.querySelector(".reset-btn").addEventListener("click", reset);
+// this_day[day].addEventListener("click", item_toggle_color);
+
